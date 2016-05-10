@@ -13,37 +13,24 @@ where the user is always specified.
 ## BOSH properties
 
 This guide assumes that you are transitioning from [Garden-Linux-Release
-v0.337.0](https://github.com/cloudfoundry-incubator/garden-linux-release/releases/tag/v0.337.0).
+v0.337.0](https://github.com/cloudfoundry-incubator/garden-linux-release/releases/tag/v0.337.0),
+and is currently up to date with respect to [Garden-RunC-Release
+v0.2.0](https://github.com/cloudfoundry-incubator/garden-runc-release/releases/tag/v0.2.0).
 
-The following properties are identical and should not need to be changed when
-replacing Garden-Linux with Garden-RunC:
+Most properties are identical and should not need to be changed when replacing
+Garden-Linux with Garden-RunC.
 
-- `allow_host_access`
-- `allow_networks`
-- `debug_listen_address`
-- `default_container_grace_time`
-- `default_container_rootfs`
-- `deny_networks`
-- `destroy_containers_on_start`
-- `dns_servers`
-- `docker_registry_endpoint`
-- `dropsonde.destination`
-- `dropsonde.origin`
-- `graph_cleanup_threshold_in_mb`
-- `insecure_docker_registry_list`
-- `listen_address`
-- `listen_network`
-- `log_level`
-- `max_containers`
-- `network_mtu`
-- `persistent_image_list`
-- `port_pool.size`
-- `port_pool.start`
+The following properties have default values in Garden-RunC and Garden-Linux:
+
+- `max_containers`: default is 250 in Garden-Linux, but it has no default in
+  Garden-RunC - this will be rectified in Garden-RunC v0.3.0
+- `log_level`: default is `info` in Garden-RunC, but it has no default in
+  Garden-Linux - the behaviour is the same though, as the internal default for
+  Garden-Linux when no log level is specified is also `info`
 
 The following properties from Garden-Linux have not yet been implemented for
 Garden-RunC:
 
 - `http_proxy`
 - `https_proxy`
-- `network_pool`
 - `no_proxy`
