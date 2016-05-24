@@ -5,6 +5,12 @@
 Garden-Linux and Garden-RunC are entirely compatible at the Garden API level,
 and have almost identical behaviour (exceptions to that described below).
 
+With garden-runc, a process is considered to have exited only after garden has
+been able to collect all the output from all the processes to which it has
+attached output streams. This is behavior from garden-linux, which does not
+wait, and means that some processes that were cancellable in garden-linux may
+cancel more slowly or not at all with garden-runc.
+
 Garden-Linux always required the `User` field in any `garden.ProcessSpec` to be
 specified. In Garden-RunC, the `User` field is optional and if not specified
 will default to `root`. This should make no difference in the CF/Diego use case,
