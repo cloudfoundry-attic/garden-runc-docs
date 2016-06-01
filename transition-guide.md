@@ -7,7 +7,7 @@ and have almost identical behaviour (exceptions to that described below).
 
 With garden-runc, a process is considered to have exited only after garden has
 been able to collect all the output from all the processes to which it has
-attached output streams. This is behavior from garden-linux, which does not
+attached output streams. This is different from garden-linux, which does not
 wait, and means that some processes that were cancellable in garden-linux may
 cancel more slowly or not at all with garden-runc.
 
