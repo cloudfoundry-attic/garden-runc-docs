@@ -23,10 +23,9 @@ interface for a complete list of operations.
 
 ## Destroy
 
-When a container is destroyed, Garden invokes the `runc kill` command for that
-container. This command sends the `KILL` signal to the init process of the
-container. The linux kernel guarantees that all processes in the container
-process tree will be killed as a result of this. Once all resources the
-container used have been released, its files are removed and it is considered
-destroyed.
+When a container is destroyed, Garden sends the `KILL` signal to the init
+process of the container. The linux kernel guarantees that all processes in the
+container process tree will be killed as a result of this. Once all resources
+the container used have been released, its files are removed and it is
+considered destroyed.
 
